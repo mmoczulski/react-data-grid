@@ -305,8 +305,8 @@ class Cell extends React.PureComponent {
       CellContent = <SimpleCellFormatter value={this.props.value} />;
     }
     const isExpandCell = this.props.expandableOptions ? this.props.expandableOptions.field === this.props.column.key : false;
-    const treeDepth = this.props.expandableOptions ? this.props.expandableOptions.treeDepth : 0;
-    const marginLeft = this.props.expandableOptions && isExpandCell ? (this.props.expandableOptions.treeDepth * 30) : 0;
+    const treeDepth = (this.props.expandableOptions && this.props.expandableOptions.treeDepth) || 0;
+    const marginLeft = this.props.expandableOptions && isExpandCell ? (treeDepth * 30) : 0;
 
     let cellDeleter;
 
